@@ -7,9 +7,9 @@ services:
     ports:
       - 3306:3306
     volumes:
-      - /etc/localtime:/etc/localtime:ro
-      - /etc/timezone:/etc/timezone:ro
-      - ${DIR}/database-config:/config
+      - '/etc/localtime:/etc/localtime:ro'
+      - '/etc/timezone:/etc/timezone:ro'
+      - '${DIR}/database-config:/config'
     environment:
       - PUID=1000
       - PGID=1000
@@ -44,11 +44,11 @@ services:
     volumes:
       - '/etc/localtime:/etc/localtime:ro'
       - '/etc/timezone:/etc/timezone:ro'
-      - '/home/pi/docker/nextcloud/main:/var/www/html'
-      - '/home/pi/docker/nextcloud/apps:/var/www/html/custom_apps'
-      - '/home/pi/docker/nextcloud/config:/var/www/html/config'
-      - '/home/pi/docker/nextcloud/data:/var/www/html/data'
-      - '/home/pi/docker/nextcloud/theme:/var/www/html/themes'
+      - '${DIR}/main:/var/www/html'
+      - '${DIR}/apps:/var/www/html/custom_apps'
+      - '${DIR}/config:/var/www/html/config'
+      - '${DIR}/data:/var/www/html/data'
+      - '${DIR}/theme:/var/www/html/themes'
     depends_on:
       - nextcloud-db
       - nextcloud-redis
