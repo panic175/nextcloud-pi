@@ -6,7 +6,7 @@ RUN apt update
 RUN apt install libmagickcore-6.q16-6-extra -y
 
 # Install clamav antivirus
-RUN apt install clamav clamav-daemon -y
+RUN apt install clamav clamav-daemon -y && mkdir /var/run/clamav -p
 
 # Install smbclient
 RUN apt install libsmbclient-dev git -y && pecl install smbclient && docker-php-ext-enable smbclient
